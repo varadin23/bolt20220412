@@ -13,5 +13,10 @@ namespace bolt2.Models
 
         public virtual Order Order { get; set; }
         public virtual Product Product { get; set; }
+
+        internal static bool Any(Func<object, bool> p)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using bolt2.Models;
+using DocumentFormat.OpenXml.InkML;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -17,18 +18,18 @@ namespace bolt2.Controllers
             this.bolttServices = bolttServices;
         }
 
-        [HttpGet]
-        public IEnumerable<Product> GetProducts()
-        {
-            return bolttServices.GetProduct();
-        }
+        //[HttpGet]
+        //public IEnumerable<Product> GetProducts(int customerID)
+        //{
+        //    return Context.OrderProduct.Where(op => op.Order.CustomerId).Select(op => op.Product);
+        //}
 
-       
         [HttpGet]
         [Route("{id}")]
-        public Product GetProduct(int id)
+        public IEnumerable<Product> GetProduct(int id)
         {
-           return (Product)bolttServices.GetProduct(id);
+           return bolttServices.GetProducts(id);
         }
+      
     }
 }
